@@ -5,7 +5,7 @@
 ## プロジェクト概要
 
 Supabase認証機能付きの不動産管理Webアプリ（realestate-app）。
-メールアドレス＋パスワードでの会員登録・ログインを行い、ログイン後は物件一覧（現状はダミーデータ）を表示する。
+メールアドレス＋パスワードでの会員登録・ログインを行い、ログイン後は自分が登録した物件の一覧・新規登録・編集・削除ができる（Supabaseの`properties`テーブルと連携、RLSにより自分の物件のみ操作可能）。
 
 - リポジトリ: https://github.com/ayumi-26/realestate-app
 
@@ -37,8 +37,11 @@ npm run dev
 - `src/context/AuthContext.jsx`: 認証状態（ログインユーザー）を管理するContext
 - `src/components/ProtectedRoute.jsx`: 未ログイン時にログイン画面へリダイレクトするラッパー
 - `src/pages/Login.jsx` / `src/pages/Signup.jsx`: ログイン・会員登録画面
-- `src/pages/PropertyList.jsx`: 物件一覧画面（カードUI・ログアウトボタン）
-- `src/data/dummyProperties.js`: 物件一覧のダミーデータ
+- `src/lib/properties.js`: 物件のCRUD処理（Supabaseの`properties`テーブル）
+- `src/components/PropertyForm.jsx`: 物件の新規登録・編集共通フォーム
+- `src/pages/PropertyList.jsx`: 物件一覧画面（一覧・新規登録・編集・削除・ログアウトボタン）
+- `supabase/sql/001_create_properties.sql`: `properties`テーブルとRLSポリシーの作成SQL（Supabase側で手動実行）
+- `vercel.json`: Vercelデプロイ用のSPAリライト設定
 
 ## Git運用ルール
 
@@ -52,5 +55,5 @@ npm run dev
 
 ## 今後追記する項目
 
-- 物件データのSupabaseテーブル連携（現状はダミーデータ）
 - テスト方針
+- デプロイ手順（Vercel環境変数の設定含む）
