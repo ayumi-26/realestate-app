@@ -43,6 +43,11 @@ npm run dev
 - `supabase/sql/001_create_properties.sql`: `properties`テーブルとRLSポリシーの作成SQL（Supabase側で手動実行）
 - `vercel.json`: Vercelデプロイ用のSPAリライト設定
 
+## デプロイ情報
+
+- 本番URL: https://realestate-app-indol-theta.vercel.app
+- Supabaseプロジェクト名: realestate-app
+
 ## Git運用ルール
 
 - コードに変更を加えたら、その都度GitHubにプッシュすること。
@@ -56,4 +61,3 @@ npm run dev
 ## 今後追記する項目
 
 - テスト方針
-- デプロイ手順（Vercel環境変数の設定含む）
